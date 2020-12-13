@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700,900');
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    background-color: #f4f4f4;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*  Typography
+====================== */
+
+h1 {
+    font-weight: 300;
+    font-size: 1.7rem;
+    margin-top: 0;
+}
+
+p {
+    margin-top: 0;
+    line-height: 1.4em;
+}
+
+p:last-of-type {
+    margin-bottom: 0;
+}
+
+
+@media (min-width: 60rem) {
+    p {
+        font-size: 1.2rem;
+        line-height: 1.6em;
+    }
+
+}
+
+/*  Navbar
+====================== */
+.navbar-custom {
+    background-color: rgba(0, 0, 0, 0) !important;
+    z-index: 10;
+}
+
+.navbar-header {
+    width: 6rem;
+}
+
+.navbar-brand-custom:focus {
+    outline: none;
+}
+
+
+.nav-text {
+    color: #feb711;
+    font-weight: 600;
+    border-radius: 0 !important;
+    padding-bottom: 1.2rem;
+}
+
+.nav-text:hover {
+    color: #feb711;
+    border-bottom: 2px solid white;
+}
+
+
+.navbar-toggler-icon {
+    color: #feb711;
+    z-index: 100;
+}
+
+
+
+
+
+/* Hero Section
+====================== */
+
+.hero-section {
+    height: 100vh !important;
+}
+
+.overlay {
+    border-radius: 0px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: 1s ease;
+    background-color: #fff;
+}
+
+.overlay-main {
+    position: static !important;
+    opacity: 0.5;
+    transition: none;
+    background-color: #000;
+}
+
+.heading-main {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 42%;
+}
+
+.heading-main h1 {
+    font-size: 8rem !important;
+    opacity: .5;
+    letter-spacing: 8px;
+    font-weight: 900;
+    color: #feb711;
+}
+
+.heading-main h5 {
+    font-size: 3rem !important;
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: #fff;
+    position: relative;
+    bottom: 7rem;
+}
+
+.heading-main h6 {
+    font-size: 1.5rem;
+}
+
+@media (max-width: 25em) {
+    .heading-main{
+        display: none;
+    }
+
+    .heading-main h1 {
+        font-size: 6rem !important;
+    }
+
+    .heading-main h5 {
+        font-size: 1rem !important;
+        bottom: 2.75rem;
+    }
+
+    .heading-main h6 {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 60em) {
+    .heading-main h1 {
+        font-size: 3rem !important;
+    }
+
+    .heading-main h6 {
+        font-size: 0.7rem;
+    }
+}
+
+
+/* About
+====================== */
+
+.home-about-textbox {
+    padding: 4em;
+    background: rgb(35, 41, 55);
+    width: 100vw;
+    margin-left: 0;
+    outline: 2px solid #feb711;
+    outline-offset: -2.5em;
+    color: #FFF;
+    position: relative;
+}
+
+.home-about-textbox h1 {
+    color: #feb711;
+    position: absolute;
+    top: .8em;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgb(35, 41, 55);
+
+    padding: 0 0.2em;
+}
+
+.home-about-textbox strong {
+    color: #feb711;
+}
+
+@media (min-width: 24em) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .home-about-textbox h1 {
+        top: .6em;
+        padding: 0 0.4em;
+    }
+
+    .home-about-textbox {
+
+        margin-left: -3.5%;
+
+    }
+}
+
+@media (min-width: 70em) {
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-about {
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(../img/supply-chain.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding-bottom: 30em;
+    }
+
+    .home-about-textbox {
+        width: 40%;
+        padding: 7em;
+        outline-offset: -3.75em;
+        margin-left: -10.5%;
+        top: -5em;
+        text-align: left;
+        box-shadow: 0 0 4em 0 rgba(0, 0, 0, .3);
+    }
+
+    .home-about-textbox h1 {
+        top: .85em;
+        left: 5.8rem;
+        transform: translateX(0);
+    }
+
+}
+
+/* Experiences
+====================== */
+.experiences-section {
+    background-color: #990000;
+}
+
+.content-wrapper-left {
+    padding-left: 30%;
+    color: white;
+}
+
+.content-wrapper-left h3 {
+    font-size: 2.5rem;
+    font-weight: 400;
+}
+
+.content-wrapper-left p {
+    font-size: 1.1rem;
+}
+
+.content-wrapper-left > p > i {
+    color: greenyellow;
+}
+
+.content-wrapper-right {
+    padding-right: 30%;
+    color: white;
+}
+
+.content-wrapper-right h3 {
+    font-size: 1.1rem;
+    font-weight: 100;
+    top: 0;
+}
+
+.inquire-button {
+    bottom: 30%;
+    width: 50%;
+}
+
+@media (max-width: 25em) {
+    .content-wrapper-left {
+        padding-left: 0;
+    }
+
+    .content-wrapper-left h3 {
+        font-size: 1.5rem;
+    }
+
+    .content-wrapper-right {
+        padding-right: 0;
+    }
+
+    .inquire-button {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 70em) {
+    .content-wrapper-right {
+        margin-left: 15%;
+    }
+
+}
+
+
+/* Cultures
+====================== */
+
+.cultures-section {
+    padding-top: 2em;
+    background-color: #f4f4f4;
+}
+
+.cultures-section h2 {
+    font-weight: 600;
+    text-align: center;
+}
+
+.cultures-section h2 span {
+    color: #990000;
+
+}
+
+.card-width {
+    width: 100%;
+    height: 26rem !important;
+}
+
+.box-shadow {
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+.box-shadow:hover {
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+    transition: .3s;
+}
+
+.card-img-size {
+    height: 50%;
+}
+
+.card-img-size img {
+    object-fit: cover;
+}
+
+.course-card-heading {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: rgb(35, 41, 55);
+}
+
+.course-card-heading span {
+    font-weight: lighter;
+    font-size: 0.9rem;
+    color: #990000;
+}
+
+.course-card-text {
+    font-size: 0.9rem;
+}
+
+.btn-card {
+    background-color: #990000;
+    border: none;
+}
+
+.btn-card:hover {
+    color: #990000!important;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+a.custom-card,
+a.custom-card:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.owl-wrapper {
+    margin-left: 18%;
+    margin-right: 18%;
+}
+
+.owl-text{
+    height: 4rem;
+
+}
+
+.owl-prev,
+.owl-next {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    font-size: 3rem !important;
+    color: #ea1c25 !important;
+}
+
+
+.owl-prev {
+    left: -2rem;
+}
+
+.owl-next {
+    right: -2rem;
+}
+
+
+button:hover,
+button:focus{
+    background-color: #f4f4f4 !important;
+    color: rgb(35, 41, 55) !important;
+    cursor: pointer;
+    outline: none;
+}
+
+@media (max-width: 25em) {
+    .owl-wrapper {
+        margin-left: 0;
+        margin-right: 5%;
+    }
+
+}
+
+@media (max-width: 70em) {
+
+    .card-width {
+        height: 24rem !important;
+    }
+
+    .owl-wrapper {
+        margin-left: 8%;
+        margin-right: 8%;
+    }
+}
+
+
+/* Nature
+====================== */
+.nature-section {
+    height: 30vh;
+}
+
+.heading-nature {
+    left: 50%;
+    transform: translateX(-50%);
+    top: 70%;
+}
+
+.heading-nature h5 {
+    font-size: 3rem !important;
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: #fff;
+    position: relative;
+    bottom: 7rem;
+}
+
+@media (max-width: 70em) {
+    .heading-nature {
+
+        top: 60%;
+    }
+
+    .heading-nature h5 {
+        font-size: 2.5rem !important;
+    }
+}
+
+@media (max-width: 60em) {
+    .heading-nature {
+        top: 70%;
+    }
+
+    .heading-nature h5 {
+        font-size: 1.5rem !important;
+    }
+
+}
+
+/* Ending Section
+====================== */
+
+#myBtn {
+    display: none; /* Hidden by default */
+    position: fixed; /* Fixed/sticky position */
+    bottom: 20px; /* Place the button at the bottom of the page */
+    right: 60px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    color: #990000 !important; /* Text color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    padding: 15px; /* Some padding */
+    border-radius: 10px; /* Rounded corners */
+    font-size: 20px; /* Increase font size */
+}
+
+
+
+/* Footer
+====================== */
+.custom-footer {
+    display: grid;
+    height: 50px;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+.img-card {
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
