@@ -9,7 +9,8 @@ body {
     margin: 0;
     text-align: center;
     font-family: 'Raleway', sans-serif;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
+    scroll-behavior: smooth;
 }
 
 img {
@@ -61,20 +62,20 @@ p:last-of-type {
 
 
 .nav-text {
-    color: #feb711;
+    color: #2e9e93;
     font-weight: 600;
     border-radius: 0 !important;
     padding-bottom: 1.2rem;
 }
 
 .nav-text:hover {
-    color: #feb711;
+    color: #2e9e93;
     border-bottom: 2px solid white;
 }
 
 
 .navbar-toggler-icon {
-    color: #feb711;
+    color: #2e9e93;
     z-index: 100;
 }
 
@@ -86,7 +87,7 @@ p:last-of-type {
 ====================== */
 
 .hero-section {
-    height: 100vh !important;
+    height: 150vh !important;
 }
 
 .overlay {
@@ -172,28 +173,28 @@ p:last-of-type {
 
 .home-about-textbox {
     padding: 4em;
-    background: rgb(35, 41, 55);
+    background: #2e9e93;
     width: 100vw;
     margin-left: 0;
-    outline: 2px solid #feb711;
+    outline: 2px solid #ffffff;
     outline-offset: -2.5em;
     color: #FFF;
     position: relative;
 }
 
 .home-about-textbox h1 {
-    color: #feb711;
+    color: #ffffff;
     position: absolute;
     top: .8em;
     left: 50%;
     transform: translateX(-50%);
-    background: rgb(35, 41, 55);
+    background: #2e9e93;
 
     padding: 0 0.2em;
 }
 
 .home-about-textbox strong {
-    color: #feb711;
+    color: #ffffff;
 }
 
 @media (min-width: 24em) {
@@ -219,17 +220,19 @@ p:last-of-type {
     }
 
     .home-about {
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)), url(../img/supply-chain.jpg);
-        background-size: cover;
+        background:  url(../img/crowdfarming.jpg);
+        /*background-size: cover;*/
         background-repeat: no-repeat;
-        padding-bottom: 30em;
+        background-position-x: center;
+        /*padding-bottom: 30em;*/
+        height: 100vh;
     }
 
     .home-about-textbox {
         width: 40%;
         padding: 7em;
         outline-offset: -3.75em;
-        margin-left: -10.5%;
+        margin-left: -40.5%;
         top: -5em;
         text-align: left;
         box-shadow: 0 0 4em 0 rgba(0, 0, 0, .3);
@@ -246,7 +249,7 @@ p:last-of-type {
 /* Experiences
 ====================== */
 .experiences-section {
-    background-color: #990000;
+    background-color: #2e9e93;
 }
 
 .content-wrapper-left {
@@ -324,7 +327,7 @@ p:last-of-type {
 }
 
 .cultures-section h2 span {
-    color: #990000;
+    color: #2e9e93;
 
 }
 
@@ -359,7 +362,7 @@ p:last-of-type {
 .course-card-heading span {
     font-weight: lighter;
     font-size: 0.9rem;
-    color: #990000;
+    color: #2e9e93;
 }
 
 .course-card-text {
@@ -367,12 +370,12 @@ p:last-of-type {
 }
 
 .btn-card {
-    background-color: #990000;
+    background-color: #2e9e93;
     border: none;
 }
 
 .btn-card:hover {
-    color: #990000!important;
+    color: #2e9e93!important;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -518,3 +521,5 @@ button:focus{
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+

@@ -15,6 +15,7 @@
 <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     <!-- Styles -->
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -28,7 +29,6 @@
     <link href="{{ asset('css/universal-parallax.min.css') }}" rel="stylesheet">
     @stack('styles')
 </head>
-<body>
 <body>
 <div id="name"></div>
 
@@ -115,27 +115,51 @@
 </div>
 
 <div id="home" class="hero-section">
-    <div class="parallax d-grid" data-parallax-image="{{asset('img/hero-veg.jpg')}}" style="top:0;">
-        <div class="overlay overlay-main "></div>
+    <div class="parallax d-grid" data-parallax-image="{{asset('img/both.PNG')}}" style="top:0;">
+{{--        <div class="overlay overlay-main "></div>--}}
 
     </div>
 
 </div>
-<div class="heading-main m-auto position-absolute">
-    <h1>AGROCHAIN</h1>
-    <h5>Agricultural Supply Chain</h5>
-    <h6 class="text-white text-center">Buying food directly from farmers is the most powerful everyday act available to anyone to create a positive social and environmental impact.<br>Track good agricultural habits & practices from farm to finger.</h6>
-</div>
+<div id="experiences" class="container-fluid cultures-section pb-5 pt-5">
+    <div class="owl-wrapper">
+        <h2 class="pb-2 pt-2">Crowdfarming <span>Projects</span></h2>
+        @if(count($activeProjects) > 0)
+            <div class="owl-carousel owl-theme mt-4">
+                @foreach($activeProjects as $activeProject)
+                    <div class="item p-2 container">
+                        <a href="#" class="custom-card">
+                            <div class="card card-width box-shadow ">
+                                <div class="card-body p-0 text-left">
+                                    <div class="card-img-size img-fluid overflow-hidden">
+                                        <div class="w-100 img-card"
+                                             style="background-image: url('{{url('uploads/'.$activeProject->filename)}}')"></div>
+                                    </div>
+                                    <h4 class="card-title course-card-heading pt-3 pl-3 mb-0">{{$activeProject->name}}<br><span></span><br><span>Farmer : {{$activeProject->users->name}}</span>
+                                    </h4>
 
-<div class="container p-0" id="about">
-    <section class="home-about">
-        <div class="home-about-textbox">
-            <h1>Who We Are</h1>
-            <p>We believe in <br><strong>TRANSPARENCY</strong></p>
-            <p><strong>Organicness</strong> is what defines us.</p>
-        </div>
-    </section>
+                                    <div class="owl-text overflow-hidden">
+                                        <p class="card-text course-card-text p-3">{{$activeProject->price}} minimum contribution needed</p>
+                                    </div>
+                                    <a href="{{route('projects.show', $activeProject->id)}}"><button class="btn btn-success btn-card mt-3 ml-3">See Project</button></a>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+                @else
+                    <h4 class="pb-2 pt-2">No Active <span>Projects</span></h4>
+                @endif
+            </div>
+    </div>
 </div>
+{{--<div class="heading-main m-auto position-absolute">--}}
+{{--    <h1>AGROCHAIN</h1>--}}
+{{--    <h5>Agricultural Supply Chain</h5>--}}
+{{--    <h6 class="text-white text-center">Buying food directly from farmers is the most powerful everyday act available to anyone to create a positive social and environmental impact.<br>Track good agricultural habits & practices from farm to finger.</h6>--}}
+{{--</div>--}}
+
+
 <div class="experiences-section p-5">
     <div class="container-fluid">
         <div class="row">
@@ -178,112 +202,19 @@
     </div>
 </div>
 
-<div id="experiences" class="container-fluid cultures-section pb-5 pt-5">
-    <div class="owl-wrapper">
-        <h2 class="pb-2 pt-2">Popular <span>Crops</span></h2>
-        <div class="owl-carousel owl-theme mt-4">
-            <div class="item p-2 container">
-                <a href="#experiences" class="custom-card">
-                    <div class="card card-width box-shadow ">
-                        <div class="card-body p-0 text-left">
-                            <div class="card-img-size img-fluid overflow-hidden">
-                                <div class="w-100 img-card"
-                                     style="background-image: url('{{asset('img/Cards/onion.jpg')}}')"></div>
-                            </div>
-                            <h4 class="card-title course-card-heading pt-3 pl-3 mb-0">Onions<br><span>Harvested 2 days ago</span>
-                            </h4>
+<div class="container p-0 mr-5" id="about">
+    <section class="home-about mt-4">
+        <div class="home-about-textbox">
+            <h1>Who We Are</h1>
+            <p style="font-size: 20px">Web-based system which helps in tracking good agricultural habits & practices from farm to finger.</p>
+            <p style="font-size: 14px">Agrochain will help in tracking good agricultural habits using distributed ledger technology (DLT). This allows customers to enter tracking ID to access detailed supply chain information, seed plantation, fertilizers used, harvesting process, and origin.<br><br>
 
-                            <div class="owl-text overflow-hidden">
-                                <p class="card-text course-card-text p-3">Onions from India's biggest onion farm. </p>
-                            </div>
-                            <button class="btn btn-success btn-card mt-3 ml-3">Learn More</button>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="item p-2 container">
-                <a href="#experiences" class="custom-card">
-                    <div class="card card-width box-shadow">
-                        <div class="card-body p-0 text-left">
-                            <div class="card-img-size img-fluid overflow-hidden">
-                                <div class="w-100 img-card"
-                                     style="background-image: url('{{asset('img/Cards/apple.jpg')}}')"></div>
-                            </div>
-                            <h4 class="card-title course-card-heading pt-3 pl-3 mb-0">
-                                Apples<br><span>Planted</span></h4>
-
-                            <div class="owl-text overflow-hidden">
-                                <p class="card-text course-card-text p-3">Juicy Apples from Mustang.</p>
-                            </div>
-                            <button class="btn btn-success btn-card mt-3 ml-3">Learn More</button>
-
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="item p-2 container">
-                <a href="#experiences" class="custom-card">
-                    <div class="card card-width box-shadow">
-                        <div class="card-body p-0 text-left">
-                            <div class="card-img-size img-fluid overflow-hidden">
-                                <div class="w-100 img-card"
-                                     style="background-image: url('{{asset('img/Cards/brocoli.jpg')}}')"></div>
-                            </div>
-                            <h4 class="card-title course-card-heading pt-3 pl-3 mb-0">
-                                Broccoli<br><span>Planted</span></h4>
-
-                            <div class="owl-text overflow-hidden">
-                                <p class="card-text course-card-text p-3">Fresh Broccoli from Nuwakot.</p>
-                            </div>
-                            <button class="btn btn-success btn-card mt-3 ml-3">Learn More</button>
-
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="item p-2 container">
-                <a href="#experiences" class="custom-card">
-                    <div class="card card-width box-shadow">
-                        <div class="card-body p-0 text-left">
-                            <div class="card-img-size img-fluid overflow-hidden">
-                                <div class="w-100 img-card"
-                                     style="background-image: url('{{asset('img/Cards/kiwi.jpg')}}')"></div>
-                            </div>
-                            <h4 class="card-title course-card-heading pt-3 pl-3 mb-0">Kiwi<br><span>Shipped</span>
-                            </h4>
-
-                            <div class="owl-text overflow-hidden">
-                                <p class="card-text course-card-text p-3">Organic Kiwis from Palpa.</p>
-                            </div>
-                            <button class="btn btn-success btn-card mt-3 ml-3">Learn More</button>
-
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="item p-2 container">
-                <a href="#experiences" class="custom-card">
-                    <div class="card card-width box-shadow">
-                        <div class="card-body p-0 text-left">
-                            <div class="card-img-size img-fluid overflow-hidden">
-                                <div class="w-100 img-card"
-                                     style="background-image: url('{{asset('img/Cards/pom.jfif')}}')"></div>
-                            </div>
-                            <h4 class="card-title course-card-heading pt-3 pl-3 mb-0">
-                                Pomegranate<br><span>Harvested 1 day ago</span></h4>
-
-                            <div class="owl-text overflow-hidden">
-                                <p class="card-text course-card-text p-3">Fresh Pomegranates from Pokhara.</p>
-                            </div>
-                            <button class="btn btn-success btn-card mt-3 ml-3">Learn More</button>
-
-                        </div>
-                    </div>
-                </a>
-            </div>
+                In the meantime, the tracking of good agricultural habits made by Agrochain will help create a unique identity of agricultural products. For instance, apples of Jumla have significantly higher demand in the market because they have a unique identity. Such unique identity will make local products more competent while greatly enticing the buyers to buy.</p>
         </div>
-    </div>
+    </section>
 </div>
+
+
 
 <div id="nature" class="nature-section">
     <div class="parallax d-grid" data-parallax-image="{{asset('img/fruits.jpg')}}">
@@ -336,5 +267,12 @@
         }
     });
 </script>
+<script>
+
+$(function(){
+            // setTimeout(function(){ console.log('contribut'); App.getBalance(0)}, 2000);
+        });
+
+    </script>
 </body>
 </html>

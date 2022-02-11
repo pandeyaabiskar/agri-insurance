@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name','account', 'email', 'password',
+        'name','account', 'email', 'password', 'isAdmin'
     ];
 
     /**
@@ -43,5 +43,21 @@ class User extends Authenticatable
 
     public function issuedCrops(){
         return $this->belongsTo('App\IssueRecord');
+    }
+
+    public function projects(){
+        return $this->belongsTo('App\Project');
+    }
+
+    public function farmers(){
+        return $this->belongsTo('App\Farmer');
+    }
+
+    public function verifications(){
+        return $this->belongsTo('App\InsuranceVerification');
+    }
+
+    public function applications(){
+        return $this->belongsTo('App\InsuranceApplication');
     }
 }

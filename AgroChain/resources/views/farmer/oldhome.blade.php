@@ -137,7 +137,8 @@
                                                         @else($issuedCrop->status == -1)
                                                             <strong class="btn-danger p-1" id="state">Verification Failed</strong>
 
-                                                    @endif                                                </td>
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     @if($issuedCrop->status == 0)
                                                         <a href="#" onclick="event.preventDefault(); App.plantCrop({{$issuedCrop->token}},{{$issuedCrop->id}});"><button class="btn btn-primary p-1" >Plant Crop</button></a>
@@ -170,6 +171,73 @@
 
             </div>
         </div>
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <div class="container">
+                    <div class="row justify-content-center mt-3">
+                        <div class="col-md-12 ml-auto mr-5">
+                            <div class="card">
+                                <h5 class="card-header font-weight-bold">Active Crowdfarming Projects</h5>
+
+                                <div class="card-body">
+                                    @if(count($activeProjects) > 0)
+                                        <div class="table-responsive">
+                                            <table class="table" id="table">
+                                                <thead>
+                                                <tr>
+                                                    <th>Project ID</th>
+                                                    <th>Project Name</th>
+                                                    <th>Crop Name</th>
+                                                    <th>Units</th>
+                                                    <th>Price (per unit)</th>
+                                                    <th>Season</th>
+                                                    <th>Duration</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                @foreach($activeProjects as $activeProject)
+                                                    <tr>
+                                                        <td>#{{$activeProject->id}}</td>
+                                                        <td>{{$activeProject->name}}</td>
+                                                        <td>{{$activeProject->fruit}}</td>
+                                                        <td>{{$activeProject->units}}</td>
+                                                        <td>Rs. {{$activeProject->price}}</td>
+                                                        <td>{{$activeProject->season}}</td>
+                                                        <td>{{$activeProject->duration}} days</td>
+                                                        <td>@if($activeProject->status == 1) Available @else Unavailable @endif</td>
+                                                        <td>
+                                                            <a href="{{route('projects.edit', ['id' => $activeProject->id])}}">
+                                                                <button class="btn btn-primary"><i class="far fa-eye"></i></button>
+                                                            </a>
+                                                            <a href="{{route('projects.show', ['id' => $activeProject->id])}}">
+                                                                <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
+                                                            </a>
+                                                            <a href="{{route('projects.destroy', ['id' => $activeProject->id])}}">
+                                                                <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                @endforeach
+                                                </tbody>
+                                                @else
+                                                    <div class="card p-3 text-center border-danger">No Records Found!!!</div>
+                                                @endif
+
+                                            </table>
+                                        </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
 
         <div class="row mt-5">
             <div class="col-md-12">
@@ -178,7 +246,7 @@
                     @if(count($crops) > 0)
                         <div class="row">
                             @foreach($crops as $crop)
-                                <div class="card w-25 m-2 overflow-hidden">
+                                <div class="card w-25 m-4 overflow-hidden">
                                     <div class="card-header row ">
                                         <h4 class="m-0 col"><strong>{{$crop->name}}</strong></h4>
                                         @if(!$crop->isAvailable)

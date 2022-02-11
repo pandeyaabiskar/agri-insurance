@@ -18,18 +18,23 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/loading-bar.min.css') }}" rel="stylesheet">
+
     <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="loading-bar.css"/>
 
     @stack('styles')
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: greenyellow;">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand text-green font-weight-bold" href="{{ url('/') }}">
                     Agrochain
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -47,33 +52,38 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a class="nav-link text-green font-weight-bold" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="nav-link text-green font-weight-bold" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
+                                <a class="nav-link text-green font-weight-bold" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
                             </li>
                         @if(session('role') == 'admin')
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('crop.add') }}">{{ __('Add New Crop') }}</a>
+                                <a class="nav-link text-green font-weight-bold" href="{{ route('crop.add') }}">{{ __('Add New Crop') }}</a>
                             </li>
-                            @else
+                            @elseif(session('role') == 'farmer')
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('crops.index') }}">{{ __('Request Crop') }}</a>
+                                    <a class="nav-link text-green font-weight-bold" href="{{ route('projects.create') }}">{{ __('Create New Project ') }}</a>
                                 </li>
                             @endif
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle text-green font-weight-bold" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <p class="dropdown-item" >Account: {{Auth::user()->account}}</p>
+                                <div class="dropdown-menu dropdown-menu-right " aria-labelledby="navbarDropdown">
+                                    @if(session('role') == 'farmer')
+                                        <a class="dropdown-item" href="{{ route('profile') }}">
+                                            {{ __('Profile') }}
+                                        </a>
+                                        @endif
+                                    <p class="dropdown-item m-0" >Account: {{Auth::user()->account}}</p>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -106,11 +116,23 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="{{ asset('js/loading-bar.min.js') }}"></script>
+
     <script>
         $(document).ready(function() {
             $('#table').DataTable();
         } );
     </script>
+    <script>
+        $(".info-item .btn").click(function(){
+            $(".form-container").toggleClass("log-in");
+        });
+        $(".container-form .btn").click(function(){
+            $(".form-container").addClass("active");
+            $(".card-body").toggleClass("active");
+        });
+    </script>
+    <script src="{{ asset('js/web3.min.js') }}"></script>
     @stack('scripts')
 </body>
 </html>

@@ -19,8 +19,13 @@ class AssignRoles
         if(!session('role')){
             if(Auth::user()->isAdmin == 1){
                 session(['role' => 'admin']);
-            }else {
+            }elseif(Auth::user()->isAdmin == 2) {
+                session(['role' => 'riskmanager']);
+            }
+            elseif(Auth::user()->isAdmin == 0) {
                 session(['role' => 'farmer']);
+            }else{
+                session(['role' => 'user']);
             }
             return $next($request);
         }

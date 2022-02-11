@@ -15,14 +15,14 @@ class CropsTableSeeder extends Seeder
         Crop::truncate();
 
         Crop::create([
-            'name' => 'Carrot',
+            'name' => 'Apple',
             'price' => '130',
             'season' => 'Spring',
             'harvest_days' => '80'
         ]);
 
         Crop::create([
-            'name' => 'Onion',
+            'name' => 'Kiwi',
             'price' => '500',
             'season' => 'Winter',
             'harvest_days' => '30'
@@ -43,7 +43,7 @@ class CropsTableSeeder extends Seeder
         ]);
 
         Crop::create([
-            'name' => 'Cabbage',
+            'name' => 'Oranges',
             'price' => '120',
             'season' => 'Winter',
             'harvest_days' => '150'

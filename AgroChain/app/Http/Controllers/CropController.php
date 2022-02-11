@@ -136,7 +136,8 @@ class CropController extends Controller
 
 
     public function addCrop(){
-        return view('admin.register');
+        $projectactive = "mm-active";
+        return view('admin.register', compact('projectactive'));
     }
 
     public function trackCrop(Request $request){
@@ -146,7 +147,7 @@ class CropController extends Controller
         }
         Session::flash('message', 'Token Number is invalid');
         Session::flash('class', 'danger');
-        return view('welcome');
+        return redirect('/');
     }
 
 
